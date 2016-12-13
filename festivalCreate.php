@@ -15,7 +15,6 @@ $styles = $_POST["styles"];
 $password = sha1($_POST["password"]);
 
 $listArtistes = explode(",", $artistes);
-$listStyles = explode(",", $styles);
 
 $festReq = $bdd->prepare("INSERT INTO festival(nom, lieu, date_start, date_stop, prix, taille, description, lien, password) 
 	VALUES(:nom, :lieu, :date_start, :date_stop, :prix, :taille, :description, :lien, :password)");
@@ -42,11 +41,15 @@ foreach($listArtistes as $artiste)
 	));
 }
 
-foreach($listStyles as $style)
+foreach($styles as $style)
 {
-	$styReq = $bdd->prepare("INSERT INTO style(festival_id, nom) VALUES(:festival_id, :nom)");
+	$styIdReq = $bdd->prepare("SELECT id FROM style WHERE nom = :nom");
+	$styIdReq->execute(array(":nom" => $style));
+	$styleId = $styIdReq->fetch();
+	
+	$styReq = $bdd->prepare("INSERT INTO festyle(festival_id, style_id) VALUES(:festival_id, :style_id)");
 	$styReq->execute(array(
 		"festival_id" => $festivalId,
-		"nom" => $style
+		"style_id" => $styleId["id"]
 	));
 }
