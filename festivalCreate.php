@@ -12,12 +12,13 @@ $description = $_POST["description"];
 $lien = $_POST["lien"];
 $artistes = $_POST["artistes"];
 $styles = $_POST["styles"];
+$password = sha1($_POST["password"]);
 
 $listArtistes = explode(",", $artistes);
 $listStyles = explode(",", $styles);
 
-$festReq = $bdd->prepare("INSERT INTO festival(nom, lieu, date_start, date_stop, prix, taille, description, lien) 
-	VALUES(:nom, :lieu, :date_start, :date_stop, :prix, :taille, :description, :lien)");
+$festReq = $bdd->prepare("INSERT INTO festival(nom, lieu, date_start, date_stop, prix, taille, description, lien, password) 
+	VALUES(:nom, :lieu, :date_start, :date_stop, :prix, :taille, :description, :lien, :password)");
 $festReq->execute(array(
 	"nom" => $nom,
 	"lieu" => $lieu,
@@ -26,7 +27,8 @@ $festReq->execute(array(
 	"prix" => $prix,
 	"taille" => $taille,
 	"description" => $description,
-	"lien" => $lien
+	"lien" => $lien,
+	"password" => $password
 ));
 
 $festivalId = $bdd->lastInsertId();

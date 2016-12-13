@@ -2,6 +2,21 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	
+	<style>
+	
+		input
+		{
+			display: block;
+		}
+		#styles-checkbox
+		{
+			height: 10em;
+			width: 10em;
+			overflow: auto;
+		}
+	
+	</style>
 </head>
 
 <body>
@@ -32,8 +47,25 @@
 	<label for="artistes">Artistes séparés par une virgule (sans espace)</label>
 	<input type="text" name="artistes" id="artistes" required>
 	
-	<label for="styles">Styles musicaux séparés par une virgule (sans espaces)</label>
-	<input type="text" name="styles" id="styles" required>
+	<label for="styles-checkbox">Styles musicaux</label>
+	<div id="styles-checkbox">
+	
+		<?php
+			include_once("connect.php");
+			$list = $bdd->query("SELECT nom FROM style");
+			
+			foreach($list as $style)
+			{
+				$name = $style["nom"];
+				?>
+					
+					<label for="<?php echo($name); ?>"><?php echo(ucfirst($name)); ?></label>
+					<input type="checkbox" name="styles[]" id="<?php echo($name); ?>" value="<?php echo($name); ?>">
+					
+				<?php
+			}
+		?>
+	</div>
 	
 	<label for="lien">Lien du site</label>
 	<input type="url" name="lien" id="lien" required>
