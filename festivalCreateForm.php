@@ -38,9 +38,6 @@
 	<label for="prix">Prix</label>
 	<input type="number" name="prix" id="prix" required>
 	
-	<label for="taille">Nombre de places</label>
-	<input type="number" name="taille" id="taille" required>
-	
 	<label for="description">Description</label>
 	<input type="text" name="description" id="description" required>
 	
