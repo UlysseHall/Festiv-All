@@ -51,7 +51,6 @@ foreach($repFest as $fest)
 		{
 			array_push($tempStyleList, $style["styleNom"]);
 		}
-		
 		array_push($listStyle, $tempStyleList);
 	}
 }
