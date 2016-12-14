@@ -3,7 +3,7 @@
 include_once("connect.php");
 
 $nom = $_POST["nom"];
-$lieu = $_POST["lieu"];
+$lieu = strtolower($_POST["lieu"]);
 $dateStart = $_POST["dateStart"];
 $dateStop = $_POST["dateStop"];
 $prix = $_POST["prix"];
@@ -11,7 +11,7 @@ $description = $_POST["description"];
 $lien = $_POST["lien"];
 $artistes = $_POST["artistes"];
 $styles = $_POST["styles"];
-$password = sha1($_POST["password"]);
+$password = sha1(uniqid());
 
 $listArtistes = explode(",", $artistes);
 
