@@ -67,9 +67,6 @@
 	<label for="lien">Lien du site</label>
 	<input type="url" name="lien" id="lien" required>
 	
-	<label for="password">Mot de passe (demandé lors de la modification)</label>
-	<input type="password" name="password" id="password" required>
-	
 	<input type="submit">
 	
 	</form>
