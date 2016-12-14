@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-</head>
-
-<body>
-
 <?php
-include("connect.php");
+include_once("connect.php");
 $listLieu = $bdd->query("SELECT lieu FROM festival group by lieu");
 $listStyle = $bdd->query("SELECT id, nom FROM style");
 ?>
@@ -61,6 +53,3 @@ $listStyle = $bdd->query("SELECT id, nom FROM style");
 		
 		<input type="submit">
 	</form>
-
-</body>
-</html>
