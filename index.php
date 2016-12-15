@@ -6,12 +6,14 @@
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<link rel="stylesheet" type="text/css" href="css/style-nav.css">
 	<link rel="stylesheet" type="text/css" href="css/style-footer.css">
+	<link rel="stylesheet" type="text/css" href="css/style-search-form.css">
 </head>
 <body>
     <header>
 		<?php include_once("navbar.php"); ?>
 		<center>
 			<img src="img-layout/logoblanc.png" class="logo">
+			<?php include("searchForm.php"); ?>
 		</center>
     </header>
 <main>

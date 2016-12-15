@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 include_once("connect.php");
 
 $reqFest =	"SELECT f.id festId, f.nom festNom, f.date_start festDate, f.lieu festLieu
@@ -12,20 +13,37 @@ $reqFest =	"SELECT f.id festId, f.nom festNom, f.date_start festDate, f.lieu fes
 if(isset($_POST["mois"]) && $_POST["mois"] != "")
 {
 	$mois = $_POST["mois"];
+	$_SESSION["searchMois"] = $mois;
 	$reqFest .= " WHERE MONTH(f.date_start) =".$mois;
+}
+else
+{
+	$_SESSION["searchMois"] = "";
 }
 
 if(isset($_POST["style"]) && $_POST["style"] != "")
 {
 	$styId = $_POST["style"];
+	$_SESSION["searchStyle"] = $styId;
 	$reqFest .= " AND s.id =".$styId;
+}
+else
+{
+	$_SESSION["searchStyle"] = "";
 }
 
 if(isset($_POST["lieu"]) && $_POST["lieu"] != "")
 {
 	$lieu = $_POST["lieu"];
+	$_SESSION["searchLieu"] = $lieu;
 	$reqFest .= " AND f.lieu="."'".$lieu."'";
 }
+else
+{
+	$_SESSION["searchLieu"] = "";
+}
+
+$reqFest .= " ORDER BY f.nom";
 
 $repFest = $bdd->query($reqFest);
 
@@ -34,9 +52,10 @@ $listStyle = [];
 
 foreach($repFest as $fest)
 {
-	if(!in_array($fest["festNom"], $listFest))
+	$tempFestList = [$fest["festNom"], $fest["festLieu"], new DateTime($fest["festDate"])];
+	if(!in_array($tempFestList, $listFest))
 	{
-		array_push($listFest, $fest["festNom"]);
+		array_push($listFest, $tempFestList);
 		$styles = $bdd->prepare("
 			SELECT s.nom styleNom
 			FROM style s
@@ -55,15 +74,7 @@ foreach($repFest as $fest)
 	}
 }
 
-$arrayIndex = 0;
-foreach($listFest as $festival)
-{
-	echo("Festival : " . $festival . ", Genres : ");
-	foreach($listStyle[$arrayIndex] as $genre)
-	{
-		echo($genre . ", ");
-	}
-	echo("<br>");
-	$arrayIndex++;
-}
+$_SESSION["listFest"] = $listFest;
+$_SESSION["listStyle"] = $listStyle;
+header("Location: search.php");
 ?>

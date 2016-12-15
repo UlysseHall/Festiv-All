@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 include_once("connect.php");
 
 $nom = $_POST["nom"];
@@ -11,7 +12,8 @@ $description = $_POST["description"];
 $lien = $_POST["lien"];
 $artistes = $_POST["artistes"];
 $styles = $_POST["styles"];
-$password = sha1(uniqid());
+$password = uniqid();
+$passwordEncrypted = sha1($password);
 
 $listArtistes = explode(",", $artistes);
 
@@ -25,7 +27,7 @@ $festReq->execute(array(
 	"prix" => $prix,
 	"description" => $description,
 	"lien" => $lien,
-	"password" => $password
+	"password" => $passwordEncrypted
 ));
 
 $festivalId = $bdd->lastInsertId();
@@ -51,3 +53,6 @@ foreach($styles as $style)
 		"style_id" => $styleId["id"]
 	));
 }
+
+$_SESSION["pass"] = $password;
+header("Location: successadd.php");

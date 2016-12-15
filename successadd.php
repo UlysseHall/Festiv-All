@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!doctype html>
 <html>
 <head>
@@ -15,9 +17,9 @@
     <h1>Confirmation</h1>
     <section>   
         <p>Votre festival a bien été ajouté !<br>
-        Voici l'identifiant requis en cas d'édition ou de suppression de ce dernier.
+        Voici l'identifiant requis en cas d'édition ou de suppression.
         <br><br>
-        <strong>XXXX</strong></p>
+        <strong><?php echo($_SESSION["pass"]); ?></strong></p>
     </section>
 </main>
 <?php include("footer.php"); ?>
