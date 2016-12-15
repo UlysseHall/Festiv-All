@@ -43,5 +43,8 @@ input[type=submit] {
     width: 40px;
     height: 50%;
     background: #dbaa24;
-    border-color: #dbaa24;
+    border: none;
+	border-radius: 2px;
+	font-family: 'Avenir', sans-serif;
+	font-weight: bolder;
 }

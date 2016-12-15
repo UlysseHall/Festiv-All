@@ -12,11 +12,15 @@
 	<?php include("navbar.php"); ?>
 
 	<section>
+		<h1>Modifier un festival</h1><br><br><br>
 		<center>
-			<div class="contenu"> 
-				<button onclick="fAddText()">Mofifier un festival</button>
-				<div id="Cible"></div> 
-			</div>
+			<div class="contenu">
+				<form action="" method="POST">
+					<input id="pass" placeholder="Votre identifiant unique" type="password">
+					<input id="passvalid" type="submit" class="button">
+				</form>
+				
+			</div><br><br>
 		</center>
 	
 		<hr>
@@ -43,8 +47,8 @@
 			<label for="description">Description</label>
 			<input type="text" name="description" id="description" required>
 			
-			<label for="artistes">Artistes séparés par une virgule (sans espace)</label>
-			<input type="text" name="artistes" id="artistes" required>
+			<label for="artistes">Artistes</label>
+			<input type="text" name="artistes" id="artistes" placeholder="Séparés par une virgule (sans espace)" required>
 			
 			<label for="styles-checkbox">Styles musicaux</label>
 			<div id="styles-checkbox">

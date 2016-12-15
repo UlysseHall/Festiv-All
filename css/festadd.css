@@ -1,9 +1,9 @@
-*	{
-		margin: 0;
-		padding: 0;
-	}
+* {
+	margin: 0;
+	padding: 0;
+}
 
-body	{
+body {
 	background-color: #E1E1E1;
 }
 
@@ -14,29 +14,41 @@ section {
 	padding-top: 100px;
 }
 
-h1	{
-		margin-top: 25px;
-		margin-bottom: 30px;
-		text-align: center;
-	}
-	
-hr	{
-		clear: both;
-	}
+h1 {
+	font-family: 'Avenir', sans-serif;
+	font-size: 20px;
+	color: #767676;
+	margin-left: 10%;
+	padding-top: 5%;
+	margin-bottom: 2%;
+	font-weight: lighter;
+	border-bottom: 2px solid #dbaa24;
+	line-height: 40px;
+	display: inline-block;
+}
+
+hr {
+	clear: both;
+	color: #E1E1E1;
+	border-style: double;
+
+}
 
 .submit {
 	padding-top: 50px;
 	text-align: center;
 }
+
 label {
-	font-size: 15px;
+	font-size: 14px;
 	text-align: center;
 	display: inherit;
 	margin-bottom: 10px;
+	font-family: 'Avenir', sans-serif;
+	color: #767676;
 }
 
-label[for=lien]
-{
+label[for=lien] {
 	clear: both;
 }
 
@@ -46,51 +58,44 @@ input {
 	width: 50%;
 	margin: 0 25% 30px;
 }
+
 #styles-checkbox label {
 	display: inline;
 	position: relative;
-	margin-left: 10px;
-	margin-top: 50px;
+	bottom: -16px;
+	margin-left: 100px;
+	margin-top: 10px;
 }
 #styles-checkbox input{
 	padding: 0;
 	width: 20%;
-	margin-right: 10px;
 }
+
 #styles-checkbox .genre{
 	float:left;
 	width:25%;
 }
+
 input[type=submit] {
-    padding:5px; 
-    border:2px solid #ccc; 
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    text-align: center;
+	padding: 5px; 
+	border: none; 
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	text-align: center;
+	background-color: #E1E1E1;
+	font-family: 'Avenir', sans-serif;
+	color: #767676;
 }
 
-.contenu button
-{
-	margin-bottom: 30px;
-	padding:5px; 
-    border:2px solid #ccc; 
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    text-align: center;
-	width: 50%;
-}
-
-.contenu #passvalid
-{
+.contenu #passvalid {
 	width: 22.5%;
 	margin: 0px;
 	float: left;
-	padding: 10px;
+	padding: 11px;
 }
 
-.contenu #pass
-{
-	width: 25%;
+.contenu #pass {
+	width: 22.5%;
 	margin-left: 25%;
 	margin-right: 0px;
 	float: left;
