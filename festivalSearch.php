@@ -52,7 +52,7 @@ $listStyle = [];
 
 foreach($repFest as $fest)
 {
-	$tempFestList = [$fest["festNom"], $fest["festLieu"], new DateTime($fest["festDate"])];
+	$tempFestList = [$fest["festNom"], $fest["festLieu"], new DateTime($fest["festDate"]), $fest["festId"]];
 	if(!in_array($tempFestList, $listFest))
 	{
 		array_push($listFest, $tempFestList);

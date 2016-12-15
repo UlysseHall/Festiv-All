@@ -19,7 +19,8 @@
 .nav > li > a {
 	text-decoration: none;
 	color: white;
-	font-size: 1em;
+	font-family: 'Avenir', sans-serif;
+	font-size: 17px;
 }
 
 .nav > li > a:hover {

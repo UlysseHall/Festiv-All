@@ -20,7 +20,7 @@
     <h1>Prochainement</h1>
     <section>
         <article class="soon">
-            <img src="img-content/dantesk.png" alt="Dantesk" class="imgarticleright">
+            <img src="img-content/dantesk.jpg" alt="Dantesk" class="imgarticleright">
             <div class="txtarticleleft">
                 <h2>Chassieu (69), Rhône-Alpes</h2>
                 <h3>techno / trance</h3>

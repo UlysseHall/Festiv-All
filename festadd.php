@@ -15,8 +15,8 @@
 		<h1>Modifier un festival</h1><br><br><br>
 		<center>
 			<div class="contenu">
-				<form action="" method="POST">
-					<input id="pass" placeholder="Votre identifiant unique" type="password">
+				<form action="festmodif.php" method="POST">
+					<input id="pass" name="pass" placeholder="Votre identifiant unique" type="password">
 					<input id="passvalid" type="submit" class="button">
 				</form>
 				
@@ -25,7 +25,7 @@
 	
 		<hr>
 	
-		<h1>Ajoutez votre festival</h1>
+		<h1>Ajouter un festival</h1>
 		
 		<form method="POST" action="festivalCreate.php">
 		

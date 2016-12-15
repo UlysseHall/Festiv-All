@@ -60,7 +60,7 @@
 								}
 								?>
 							</h4>
-							<a href="">En savoir plus ></a>
+							<a href="info.php?id=<?php echo($festival[3]); ?>">En savoir plus ></a>
 						</div>
 						
 					</article>
