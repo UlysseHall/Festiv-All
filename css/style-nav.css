@@ -1,0 +1,35 @@
+.nav {
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+	color: white;
+	list-style: none;
+	text-align: right;
+	padding: 0px 0 0px 0;
+	font-family: 'Avenir', sans-serif;
+	overflow: auto;
+	position: fixed;
+	z-index: 5;
+}
+
+.nav > li {
+	display: inline-block;
+	padding: 15px 25px 0 25px;
+}
+
+.nav > li > a {
+	text-decoration: none;
+	color: white;
+	font-family: 'Avenir', sans-serif;
+	font-size: 17px;
+}
+
+.nav > li > a:hover {
+	color: #c1c1c1;
+}
+
+.logonav {
+	width: 8%;
+	float: left;
+	padding: 0;
+	margin: 10px;
+}

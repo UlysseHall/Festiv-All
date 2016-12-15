@@ -1,0 +1,28 @@
+footer {
+	padding: 10px;
+	background: black;
+	font-family: "Avenir", sans-serif;
+}
+
+footer #img_footer {
+	display: inline-block;
+	width: 100%;
+	margin :auto;
+	text-align: center;
+}
+
+footer #img_footer .facebook {
+	width: 2%;
+}
+footer #img_footer .twitter {
+	width: 2%;
+}
+footer #img_footer .instagram {
+	width: 2%;
+} 
+
+footer p {
+	text-align: center;
+	color: white;
+	margin-top: 0px;
+}

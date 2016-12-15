@@ -1,0 +1,102 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: #E1E1E1;
+}
+
+section {
+	width: 60%;
+	margin: 0 auto;
+	background: #F0F0F0;
+	padding-top: 100px;
+}
+
+h1 {
+	font-family: 'Avenir', sans-serif;
+	font-size: 20px;
+	color: #767676;
+	margin-left: 10%;
+	padding-top: 5%;
+	margin-bottom: 2%;
+	font-weight: lighter;
+	border-bottom: 2px solid #dbaa24;
+	line-height: 40px;
+	display: inline-block;
+}
+
+hr {
+	clear: both;
+	color: #E1E1E1;
+	border-style: double;
+
+}
+
+.submit {
+	padding-top: 50px;
+	text-align: center;
+}
+
+label {
+	font-size: 14px;
+	text-align: center;
+	display: inherit;
+	margin-bottom: 10px;
+	font-family: 'Avenir', sans-serif;
+	color: #767676;
+}
+
+label[for=lien] {
+	clear: both;
+}
+
+input {
+	margin-bottom: 20px;
+	padding: 10px;
+	width: 50%;
+	margin: 0 25% 30px;
+}
+
+#styles-checkbox label {
+	display: inline;
+	position: relative;
+	bottom: -16px;
+	margin-left: 100px;
+	margin-top: 10px;
+}
+#styles-checkbox input{
+	padding: 0;
+	width: 20%;
+}
+
+#styles-checkbox .genre{
+	float:left;
+	width:25%;
+}
+
+input[type=submit] {
+	padding: 5px; 
+	border: none; 
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	text-align: center;
+	background-color: #E1E1E1;
+	font-family: 'Avenir', sans-serif;
+	color: #767676;
+}
+
+.contenu #passvalid {
+	width: 22.5%;
+	margin: 0px;
+	float: left;
+	padding: 11px;
+}
+
+.contenu #pass {
+	width: 22.5%;
+	margin-left: 25%;
+	margin-right: 0px;
+	float: left;
+}
