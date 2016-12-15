@@ -12,36 +12,35 @@ $description = mysql_real_escape_string($_POST["description"]);
 $lien = mysql_real_escape_string($_POST["lien"]);
 $artistes = mysql_real_escape_string($_POST["artistes"]);
 $styles = $_POST["styles"];
-$img = "defaut.jpg";
-$password = uniqid();
-$passwordEncrypted = sha1($password);
-
 $listArtistes = explode(",", $artistes);
+$festId = $_SESSION["updateFestId"];
 
-$festReq = $bdd->prepare("INSERT INTO festival(nom, lieu, date_start, date_stop, prix, description, lien, password, img) 
-	VALUES(:nom, :lieu, :date_start, :date_stop, :prix, :description, :lien, :password, :img)");
+$festReq = $bdd->prepare("UPDATE festival SET nom = :nom, lieu = :lieu, date_start = :dateStart, date_stop = :dateStop, prix = :prix, description = :description, lien = :lien WHERE id = :festId");
 $festReq->execute(array(
 	"nom" => $nom,
 	"lieu" => $lieu,
-	"date_start" => $dateStart,
-	"date_stop" => $dateStop,
+	"dateStart" => $dateStart,
+	"dateStop" => $dateStop,
 	"prix" => $prix,
 	"description" => $description,
 	"lien" => $lien,
-	"password" => $passwordEncrypted,
-	"img" => $img
+	"festId" => $festId
 ));
 
-$festivalId = $bdd->lastInsertId();
+$delArt = $bdd->prepare("DELETE FROM artiste WHERE festival_id = :festId");
+$delArt->execute(array("festId" => $festId));
 
 foreach($listArtistes as $artiste)
 {
 	$artReq = $bdd->prepare("INSERT INTO artiste(festival_id, nom) VALUES(:festival_id, :nom)");
 	$artReq->execute(array(
-		"festival_id" => $festivalId,
+		"festival_id" => $festId,
 		"nom" => $artiste
 	));
 }
+
+$delSty = $bdd->prepare("DELETE FROM festyle WHERE festival_id = :festId");
+$delSty->execute(array("festId" => $festId));
 
 foreach($styles as $style)
 {
@@ -51,11 +50,11 @@ foreach($styles as $style)
 	
 	$styReq = $bdd->prepare("INSERT INTO festyle(festival_id, style_id) VALUES(:festival_id, :style_id)");
 	$styReq->execute(array(
-		"festival_id" => $festivalId,
+		"festival_id" => $festId,
 		"style_id" => $styleId["id"]
 	));
 }
 
-$_SESSION["pass"] = $password;
-$_SESSION["festId"] = $festivalId;
-header("Location: successadd.php");
+header("Location: info.php?id=".$festId);
+
+?>

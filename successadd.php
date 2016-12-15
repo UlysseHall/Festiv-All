@@ -19,7 +19,8 @@
         <p>Votre festival a bien été ajouté !<br>
         Voici l'identifiant requis en cas d'édition ou de suppression.
         <br><br>
-        <strong><?php echo($_SESSION["pass"]); ?></strong></p>
+        <strong><?php echo($_SESSION["pass"]); ?></strong><br><br>
+		<a href="info.php?id=<?php echo($_SESSION["festId"]); ?>">Accéder à votre annonce</a></p>
     </section>
 </main>
 <?php include("footer.php"); ?>

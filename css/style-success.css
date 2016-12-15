@@ -32,7 +32,7 @@ section {
     width: 90%;
     background: #FFF;
     margin: 0 auto;
-    height: 100px;
+    height: 300px;
     overflow: hidden;
     display: flex;
     flex-direction: row;
@@ -45,4 +45,15 @@ section p {
     font-size: 1em;
     color: #767676;
     text-align: center;
+}
+
+a
+{
+	font-family: 'Avenir', sans-serif;
+    font-size: 1em;
+    color: #767676;
+    text-align: center;
+	text-decoration: none;
+	font-size: 1.5em;
+	font-weight: bold;
 }

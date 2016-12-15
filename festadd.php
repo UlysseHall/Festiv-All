@@ -5,6 +5,7 @@
 	<title>Festiv'All</title>
 	<link rel="stylesheet" href="css/festadd.css">
 	<link rel="stylesheet" href="css/style-nav.css">
+	<link rel="stylesheet" type="text/css" href="css/style-footer.css">
 </head>
 
 <body>
@@ -27,56 +28,11 @@
 	
 		<h1>Ajouter un festival</h1>
 		
-		<form method="POST" action="festivalCreate.php">
+		<?php include("addForm.php"); ?>
 		
-			<label for="nom">Nom de l'événement</label>
-			<input type="text" name="nom" id="nom" required>
-			
-			<label for="dateStart">Date et heure de lancement</label>
-			<input type="datetime-local" name="dateStart" id="dateStart" required>
-			
-			<label for="dateStop">Date et heure de cloture</label>
-			<input type="datetime-local" name="dateStop" id="dateStop" required>
-			
-			<label for="lieu">Lieu</label>
-			<input type="text" name="lieu" id="lieu" required>
-			
-			<label for="prix">Prix</label>
-			<input type="number" name="prix" id="prix" required>
-			
-			<label for="description">Description</label>
-			<input type="text" name="description" id="description" required>
-			
-			<label for="artistes">Artistes</label>
-			<input type="text" name="artistes" id="artistes" placeholder="Séparés par une virgule (sans espace)" required>
-			
-			<label for="styles-checkbox">Styles musicaux</label>
-			<div id="styles-checkbox">
-			
-				<?php
-					include_once("connect.php");
-					$list = $bdd->query("SELECT nom FROM style");
-					
-					foreach($list as $style)
-					{
-						$name = $style["nom"];
-						?>
-							<div class='genre'>
-								<label for="<?php echo($name); ?>"><?php echo(ucfirst($name)); ?></label>
-								<input type="checkbox" name="styles[]" id="<?php echo($name); ?>" value="<?php echo($name); ?>">
-							</div>
-							
-						<?php
-					}
-				?>
-			</div>
-				
-			<label for="lien">Lien du site</label>
-			<input type="url" name="lien" id="lien" required>
-				
-			<input class="button" type="submit" value="Valider">
-		</form>
 	</section>
+	
+	<?php include("footer.php"); ?>
 	
 	<script type="text/javaScript"> 
 		function fAddText() { 
@@ -91,6 +47,7 @@
 				btn.innerHTML =''; 
 			}
 		} 
-	</script> 
+	</script>
+	
 </body>
 </html>

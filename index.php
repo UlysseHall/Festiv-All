@@ -32,7 +32,7 @@
                 <br><br>
                 30 €
                 <br><br>
-                <a href="" class="linkarticle">En savoir plus ></a></p>
+                <a href="info.php?id=44" class="linkarticle">En savoir plus ></a></p>
             </div>
         </article>
         <br>
@@ -49,23 +49,7 @@
                 <br><br>
                 35 €
                 <br><br>
-                <a href="" class="linkarticle">En savoir plus ></a></p>
-            </div>
-        </article>
-        <br>
-        <article class="soon">
-            <img src="img-content/garosnow.png" alt="Garosnow" class="imgarticleright">
-            <div class="txtarticleleft">
-                <h2>Les Angles (65), Midi-Pyrénées</h2>
-                <h3>tous les styles</h3>
-                <br>
-                <p>Chinese Man • Douchka • Panda Dub <br>
-                Salut C'est Cool • Comah • Naive New Beaters<br>
-                Oxia • Synapson
-                <br><br>
-                30 €
-                <br><br>
-                <a href="" class="linkarticle">En savoir plus ></a></p>
+                <a href="info.php?id=43" class="linkarticle">En savoir plus ></a></p>
             </div>
         </article>
     </section>
@@ -77,7 +61,7 @@
             <h4>Le + attendu</h4>
             <div class="info">
                 <img src="img-content/weatherwinter2.png" alt="Weather Winter" class="imginfo">
-                <h5><a href="">Weather Winter</a></h5>
+                <h5><a href="info.php?id=43">Weather Winter</a></h5>
             </div>
         </article>
 

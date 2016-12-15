@@ -3,7 +3,7 @@
 session_start();
 include_once("connect.php");
 
-$reqFest =	"SELECT f.id festId, f.nom festNom, f.date_start festDate, f.lieu festLieu
+$reqFest =	"SELECT f.id festId, f.nom festNom, f.date_start festDate, f.lieu festLieu, f.img festImg
 			FROM festival f
 			INNER JOIN festyle fs
 			ON f.id = fs.festival_id
@@ -12,7 +12,7 @@ $reqFest =	"SELECT f.id festId, f.nom festNom, f.date_start festDate, f.lieu fes
 
 if(isset($_POST["mois"]) && $_POST["mois"] != "")
 {
-	$mois = $_POST["mois"];
+	$mois = mysql_real_escape_string($_POST["mois"]);
 	$_SESSION["searchMois"] = $mois;
 	$reqFest .= " WHERE MONTH(f.date_start) =".$mois;
 }
@@ -23,7 +23,7 @@ else
 
 if(isset($_POST["style"]) && $_POST["style"] != "")
 {
-	$styId = $_POST["style"];
+	$styId = mysql_real_escape_string($_POST["style"]);
 	$_SESSION["searchStyle"] = $styId;
 	$reqFest .= " AND s.id =".$styId;
 }
@@ -34,7 +34,7 @@ else
 
 if(isset($_POST["lieu"]) && $_POST["lieu"] != "")
 {
-	$lieu = $_POST["lieu"];
+	$lieu = mysql_real_escape_string($_POST["lieu"]);
 	$_SESSION["searchLieu"] = $lieu;
 	$reqFest .= " AND f.lieu="."'".$lieu."'";
 }
@@ -52,7 +52,7 @@ $listStyle = [];
 
 foreach($repFest as $fest)
 {
-	$tempFestList = [$fest["festNom"], $fest["festLieu"], new DateTime($fest["festDate"]), $fest["festId"]];
+	$tempFestList = [$fest["festNom"], $fest["festLieu"], new DateTime($fest["festDate"]), $fest["festId"], $fest["festImg"]];
 	if(!in_array($tempFestList, $listFest))
 	{
 		array_push($listFest, $tempFestList);

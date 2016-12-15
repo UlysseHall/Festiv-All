@@ -5,6 +5,7 @@
     <title>Festiv'All</title>
     <link rel="stylesheet" type="text/css" href="css/style-info.css">
 	<link rel="stylesheet" type="text/css" href="css/style-nav.css">
+	<link rel="stylesheet" type="text/css" href="css/style-footer.css">
 </head>
 <body>
 
@@ -12,10 +13,10 @@
 include_once("navbar.php");
 include_once("connect.php");
 
-$festId = $_GET["id"];
+$festId = mysql_real_escape_string($_GET["id"]);
 
 $festReq = $bdd->prepare("
-	SELECT f.nom festNom, f.lieu festLieu, f.date_start festDateStart, f.date_stop festDateStop, f.prix festPrix, f.description festDesc, f.lien festLien
+	SELECT f.nom festNom, f.lieu festLieu, f.date_start festDateStart, f.date_stop festDateStop, f.prix festPrix, f.description festDesc, f.lien festLien, f.img festImg
 	FROM festival f
 	WHERE f.id = :festId
 	");
@@ -43,7 +44,7 @@ $dateStop = $dateStop->format("j")." ".$dateStop->format("F")." ".$dateStop->for
     <h2>Informations</h2>
 	
     <article class="soon">
-            <div class="imgarticle">
+            <div class="imgarticle" style="background-image:url('img-content/festivals/<?php echo($festival["festImg"]); ?>');">
             <h1><?php echo($festival["festNom"]); ?></h1>
             </div>
             <hr class="bottom">
@@ -91,6 +92,6 @@ $dateStop = $dateStop->format("j")." ".$dateStop->format("F")." ".$dateStop->for
     </article>
 
 </main>
-
+<?php include("footer.php"); ?>
 </body>
 </html>

@@ -13,6 +13,7 @@ main {
     background-color: #F0F0F0;
     margin: 0 auto;
 	overflow: auto;
+	min-height: 100vh;
 }
 
 h1:first-child
@@ -57,7 +58,6 @@ div.result {
 }
 
 div.imgresult {
-    background-image: url(../img-content/dantesk.png);
     width: 20%;
     opacity: 0.8;
     flex-grow: 1;
@@ -66,6 +66,14 @@ div.imgresult {
     position: relative;
     flex: 2;
 	text-align: center;
+}
+
+div.imgresult h2 {
+    background-color: rgba(0, 0, 0, 0.9);
+	padding: 5px;
+	border-radius: 5px;
+	color: white;
+	letter-spacing: 0.2em;
 }
 
 h1 {
@@ -84,7 +92,7 @@ h1 {
 h2 {
     font-family: 'Avenir', sans-serif;
     font-size: 1em;
-    color: #FFF;
+    color: black;
     position: absolute;
     margin: 0 auto;
     text-transform: uppercase;

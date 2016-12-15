@@ -35,7 +35,7 @@
 							<?php echo($festival[2]->format('F')); ?><br><?php echo($festival[2]->format('Y')); ?></p>
 						</div>
 						
-						<div class="imgresult">
+						<div class="imgresult" style="background-image:url('img-content/festivals/<?php echo($festival[4]); ?>');">
 							<h2><?php echo($festival[0]); ?></h2>
 						</div>
 						
@@ -76,6 +76,6 @@
 			}
 		?>
 	</main>
-
+	<?php include("footer.php"); ?>
 </body>
 </html>
