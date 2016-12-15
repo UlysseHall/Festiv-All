@@ -1,7 +1,13 @@
+<!--
+	Code de mise à jour de données de festival
+-->
+
 <?php
 
 session_start();
 include_once("connect.php");
+
+//Récupération des données de festmodif.php en post
 
 $nom = mysql_real_escape_string($_POST["nom"]);
 $lieu = mysql_real_escape_string(strtolower($_POST["lieu"]));
@@ -15,6 +21,8 @@ $styles = $_POST["styles"];
 $listArtistes = explode(",", $artistes);
 $festId = $_SESSION["updateFestId"];
 
+//Mise à jour des données du festival
+
 $festReq = $bdd->prepare("UPDATE festival SET nom = :nom, lieu = :lieu, date_start = :dateStart, date_stop = :dateStop, prix = :prix, description = :description, lien = :lien WHERE id = :festId");
 $festReq->execute(array(
 	"nom" => $nom,
@@ -27,8 +35,12 @@ $festReq->execute(array(
 	"festId" => $festId
 ));
 
+//Suppression des artistes du festival
+
 $delArt = $bdd->prepare("DELETE FROM artiste WHERE festival_id = :festId");
 $delArt->execute(array("festId" => $festId));
+
+//Rajout des nouveaux artistes du festival
 
 foreach($listArtistes as $artiste)
 {
@@ -39,8 +51,12 @@ foreach($listArtistes as $artiste)
 	));
 }
 
+//Suppression des styles du festival
+
 $delSty = $bdd->prepare("DELETE FROM festyle WHERE festival_id = :festId");
 $delSty->execute(array("festId" => $festId));
+
+//Rajout des nouveaux syles du festival
 
 foreach($styles as $style)
 {

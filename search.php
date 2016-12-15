@@ -1,3 +1,7 @@
+<!--
+	Page d'affichage des résultats de recherche de festival
+-->
+
 <!doctype html>
 <html>
 <head>

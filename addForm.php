@@ -1,3 +1,8 @@
+<!--
+	Formulaire de création / modification de festival inclus
+	dans festadd.php et festmodif.php
+-->
+
 <form method="POST" action="<?php if(isset($info)) { echo("festivalUpdate.php"); } else { echo("festivalCreate.php"); } ?>">
 		
 	<label for="nom">Nom de l'événement</label>

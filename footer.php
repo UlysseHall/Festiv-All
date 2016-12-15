@@ -1,3 +1,7 @@
+<!--
+	Balise footer inclus dans toutes les pages
+-->
+
 <footer>
 		<div id="img_footer">
 			<img src="img-layout/facebook.png" class="facebook" >

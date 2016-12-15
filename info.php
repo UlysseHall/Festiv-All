@@ -1,3 +1,7 @@
+<!--
+	Page d'informations d'un festival sélectionné par son id
+-->
+
 <!doctype html>
 <html>
 <head>

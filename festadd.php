@@ -1,3 +1,7 @@
+<!--
+	Page de création de festival
+-->
+
 <!DOCTYPE html>
 <html>
 <head>

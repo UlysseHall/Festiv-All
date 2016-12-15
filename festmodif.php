@@ -1,3 +1,7 @@
+<!--
+	Page de modification d'informations de festival
+-->
+
 <?php
 
 session_start();

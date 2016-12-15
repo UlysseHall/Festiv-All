@@ -1,7 +1,14 @@
+<!--
+	Code de récupération de données de festadd.php
+	Envoie les données à la base de donnée
+-->
+
 <?php
 
 session_start();
 include_once("connect.php");
+
+//Récupération des données du formulaire
 
 $nom = mysql_real_escape_string($_POST["nom"]);
 $lieu = mysql_real_escape_string(strtolower($_POST["lieu"]));
@@ -17,6 +24,8 @@ $password = uniqid();
 $passwordEncrypted = sha1($password);
 
 $listArtistes = explode(",", $artistes);
+
+//Requête de création du festival sans les styles musicaux et sans les artistes
 
 $festReq = $bdd->prepare("INSERT INTO festival(nom, lieu, date_start, date_stop, prix, description, lien, password, img) 
 	VALUES(:nom, :lieu, :date_start, :date_stop, :prix, :description, :lien, :password, :img)");
@@ -34,6 +43,8 @@ $festReq->execute(array(
 
 $festivalId = $bdd->lastInsertId();
 
+//Requête d'envoie de données des artistes
+
 foreach($listArtistes as $artiste)
 {
 	$artReq = $bdd->prepare("INSERT INTO artiste(festival_id, nom) VALUES(:festival_id, :nom)");
@@ -42,6 +53,8 @@ foreach($listArtistes as $artiste)
 		"nom" => $artiste
 	));
 }
+
+//Requête d'envoie de données des styles musicaux
 
 foreach($styles as $style)
 {
@@ -55,6 +68,9 @@ foreach($styles as $style)
 		"style_id" => $styleId["id"]
 	));
 }
+
+//Création des sessions de password (affiché sur la page successadd.php)
+//et d'id du festival pour afficher le lien du festival créé
 
 $_SESSION["pass"] = $password;
 $_SESSION["festId"] = $festivalId;
