@@ -1,8 +1,3 @@
-<!--
-	Code de recherche de festival en fonction des critères
-	de recherche
--->
-
 <?php
 
 session_start();
@@ -21,7 +16,7 @@ $reqFest =	"SELECT f.id festId, f.nom festNom, f.date_start festDate, f.lieu fes
 			
 if(isset($_POST["mois"]) && $_POST["mois"] != "")
 {
-	$mois = mysql_real_escape_string($_POST["mois"]);
+	$mois = $_POST["mois"];
 	$_SESSION["searchMois"] = $mois;
 	$reqFest .= " WHERE MONTH(f.date_start) =".$mois;
 }
@@ -34,7 +29,7 @@ else
 
 if(isset($_POST["style"]) && $_POST["style"] != "")
 {
-	$styId = mysql_real_escape_string($_POST["style"]);
+	$styId = $_POST["style"];
 	$_SESSION["searchStyle"] = $styId;
 	$reqFest .= " AND s.id =".$styId;
 }
@@ -47,7 +42,7 @@ else
 
 if(isset($_POST["lieu"]) && $_POST["lieu"] != "")
 {
-	$lieu = mysql_real_escape_string($_POST["lieu"]);
+	$lieu = $_POST["lieu"];
 	$_SESSION["searchLieu"] = $lieu;
 	$reqFest .= " AND f.lieu="."'".$lieu."'";
 }

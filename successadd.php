@@ -1,8 +1,3 @@
-<!--
-	Page de confirmation de création de festival donnant un lien
-	vers le festival créé
--->
-
 <?php session_start(); ?>
 
 <!doctype html>

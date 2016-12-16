@@ -1,7 +1,3 @@
-<!--
-	Code de suppression de festival
--->
-
 <?php
 
 session_start();

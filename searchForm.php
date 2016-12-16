@@ -1,8 +1,3 @@
-<!--
-	Formulaire de recherche de festival en fonction de 3 critères
-	Inclus dans index.php et search.php
--->
-
 <?php
 session_start();
 include_once("connect.php");

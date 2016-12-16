@@ -1,8 +1,3 @@
-<!--
-	Code de récupération de données de festadd.php
-	Envoie les données à la base de donnée
--->
-
 <?php
 
 session_start();
@@ -10,14 +5,14 @@ include_once("connect.php");
 
 //Récupération des données du formulaire
 
-$nom = mysql_real_escape_string($_POST["nom"]);
-$lieu = mysql_real_escape_string(strtolower($_POST["lieu"]));
-$dateStart = mysql_real_escape_string($_POST["dateStart"]);
-$dateStop = mysql_real_escape_string($_POST["dateStop"]);
-$prix = mysql_real_escape_string($_POST["prix"]);
-$description = mysql_real_escape_string($_POST["description"]);
-$lien = mysql_real_escape_string($_POST["lien"]);
-$artistes = mysql_real_escape_string($_POST["artistes"]);
+$nom = $_POST["nom"];
+$lieu = strtolower($_POST["lieu"]);
+$dateStart = $_POST["dateStart"];
+$dateStop = $_POST["dateStop"];
+$prix = $_POST["prix"];
+$description = $_POST["description"];
+$lien = $_POST["lien"];
+$artistes = $_POST["artistes"];
 $styles = $_POST["styles"];
 $img = "defaut.jpg";
 $password = uniqid();

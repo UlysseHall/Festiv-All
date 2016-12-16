@@ -1,7 +1,3 @@
-<!--
-	Page d'accueil
--->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

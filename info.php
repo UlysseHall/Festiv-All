@@ -1,7 +1,3 @@
-<!--
-	Page d'informations d'un festival sélectionné par son id
--->
-
 <!doctype html>
 <html>
 <head>
@@ -17,7 +13,7 @@
 include_once("navbar.php");
 include_once("connect.php");
 
-$festId = mysql_real_escape_string($_GET["id"]);
+$festId = $_GET["id"];
 
 $festReq = $bdd->prepare("
 	SELECT f.nom festNom, f.lieu festLieu, f.date_start festDateStart, f.date_stop festDateStop, f.prix festPrix, f.description festDesc, f.lien festLien, f.img festImg
